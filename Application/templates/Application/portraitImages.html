@@ -1,0 +1,10 @@
+{% extends 'Application/basic.html' %}
+	{% block content %}
+	{% load static %}
+	
+	<title>{{image.title}}</title>
+	<img src="{{image.images.url}}" class="img-fluid" alt="{{image.title}}" id="img">
+	<h1 class = "text-center mt-5">{{image.description|safe}}</h1>
+	<button onClick="rotateImg()" class="btn btn-outline-dark ">Rotate Image</button>
+  <script src="{% static 'Application/JS/Script.js'%}"></script>
+	{% endblock %}

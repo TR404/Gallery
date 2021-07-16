@@ -1,0 +1,65 @@
+{% extends 'Application/basic.html' %}
+	{% block content %}
+	{% load static %}
+
+<div class = "row">
+	{% for value in pageObj %}
+	<div class = "col-lg-4 col-md-6">
+	
+		<h2>{{value.title}}</h2><br>
+		
+		
+		<a href= "{% url 'wildlifeImages' value.id %}">
+		<img src = "{{value.images.url}}" class ="img-fluid mb-2" >
+		</a>
+		<p>{{value.description|striptags|truncatechars:100}}</p>
+		
+	</div>
+	{% endfor %}
+	</div>
+	</div>
+
+		<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add Wildlife...</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Wildlife</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" enctype="multipart/form-data" class="row g- mr-3">
+    {% csrf_token %}
+        {{ form.as_p }}
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-outline-success">Add Images</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<nav aria-label="..." style="margin-left: auto;">
+                    <span class="current">
+            Page {{ pageObj.number }} of {{ pageObj.paginator.num_pages }}.
+        </span> 
+                        <ul class="pagination">
+                            {% if pageObj.has_previous %}
+                        <li class="page-item"><a class="page-link" href = "?page=1">&laquo; First</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="?page={{ pageObj.previous_page_number }}">{{ pageObj.previous_page_number }} </a>
+                            </li>
+                               {% endif %}
+                              
+         {% if pageObj.has_next %}
+                            <li class="page-item"><a class="page-link" href="?page={{ pageObj.next_page_number }}">{{ pageObj.next_page_number }}</a></li>
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="?page={{ pageObj.paginator.num_pages }}">Last &raquo;</a>
+                            </li>
+                 {% endif %}
+                            </li>
+                        </ul>
+	</nav>
+	{% endblock %}

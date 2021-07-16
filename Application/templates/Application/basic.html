@@ -1,0 +1,61 @@
+<!-- Welcome Commander What's New on your Creative Mind' -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+	<link rel="stylesheet" href="{% static 'Application/CSS/Style.css'%}">
+	<link rel="stylesheet" href="{% static 'Application/CSS/bootstrap.css'%}">
+	<link rel = "icon" href = "{% static 'Application/IMAGES/.png'%}" type = "image/x-icon">
+	<title>Gallery</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+     <a class="navbar-brand" href="{% url 'index' %}">Gallery</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'nature' %}">Nature</a>
+        </li>
+        
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'portrait' %}">Portrait</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'cars' %}">Cars</a>
+        </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'sketch' %}">Sketch</a>
+        </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'wildlife' %}">Wildlife</a>
+        </li>
+      </ul>
+      <form class="d-flex" method = "get" action = "/search">
+        <input class="form-control me-2" type="search" placeholder="Search Images" aria-label="Search" name = "search" id = "search ">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<button onclick="topFunction()" id="myBtn" title="Go To Top">Top</button>
+	{% block content %} {% endblock %}
+	<script src="{% static 'Application/JS/Script.js'%}"></script>
+	<script src="{% static 'Application/JS/bootstrap.js'%}"></script>
+	<script src="{% static 'Application/JS/Proper.js'%}"></script>
+	<script src="{% static 'Application/JS/Jquerry.js'%}"></script>
+	
+</body>
+<footer>
+		<p>Creator: Tr's Coding<br>
+		<a href="https://www.instagram.com/tmkmohit/">Instagram</a></p>
+	</footer>
+</html>

@@ -1,0 +1,67 @@
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgba(10, 10, 10, 0.5);
+  color: red;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.me {
+  width: 400px;
+  margin: 90px auto;
+}
+.me p,
+.me h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+}
+.me p {
+  font-weight: 200;
+}
+.me span {
+  font-weight: bold;
+}
+.social {
+  position: fixed;
+  top: 20px;
+}
+
+footer {
+	text-align: center;
+	padding: 3px;
+	background-color: Black;
+	color: white;
+	
+	}
+	
+footer a{
+	color: #fff;
+	text-decoration: none;
+	background-color: transparent;
+	transition-duration: 0.2s;
+
+}
+
+footer a:hover {
+	padding-top: 10px;
+	transition-duration: 0.2s;
+	color: red;
+	font-size: 125%;
+}
