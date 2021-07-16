@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%)5-#x#av*)(_4ikxn*b2lgut3d%&k0+@4cfj)2((!5!r3%+2('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -124,7 +123,7 @@ MEDIA_URL = '/media/'
 if DEBUG:
 	STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 else:
-	STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+	STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
